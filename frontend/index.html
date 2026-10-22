@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Heroes</title>
+</head>
+<body>
+  <h1>Heroes</h1>
+  <button onclick="loadHeroes()">Load heroes</button>
+
+  <table id="heroes">
+    <thead>
+      <tr><th>ID</th><th>Name</th><th>Age</th><th>Status</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Heroes of a team</h2>
+  <select id="teams" onchange="loadTeamHeroes(this.value)"><option value="">-- choose a team --</option></select>
+  <ul id="team-heroes"></ul>
+
+  <h2>Create a hero</h2>
+  <form onsubmit="event.preventDefault(); createFromForm(this);">
+    <input name="name" placeholder="name" required>
+    <input name="secret_name" placeholder="secret name" required>
+    <input name="age" type="number" placeholder="age">
+    <button type="submit">Create</button>
+  </form>
+
+  <script>
+    const API = "http://127.0.0.1:8000/api/v1";
+    const tbody = document.querySelector("#heroes tbody");
+
+    async function loadHeroes() {
+      const res = await fetch(`${API}/heroes?limit=50`);
+      const heroes = await res.json();   // array of HeroPublic objects
+      tbody.replaceChildren();           // clear old rows first
+      for (const h of heroes) {
+        const tr = tbody.insertRow();
+        for (const v of [h.id, h.name, h.age ?? "-", h.status]) {
+          tr.insertCell().textContent = v;   // textContent, NOT innerHTML
+        }
+      }
+    }
+
+    async function createHero(data) {
+      const res = await fetch(`${API}/heroes`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),        // JS object -> JSON text
+      });
+      if (res.status === 201) {
+        await loadHeroes();                // refresh the table
+      } else if (res.status === 422) {
+        const err = await res.json();
+        alert(err.detail.map(d => `${d.loc.at(-1)}: ${d.msg}`).join("\n"));
+      } else {
+        alert(`Error ${res.status}`);
+      }
+    }
+
+    function createFromForm(form) {
+      const data = { name: form.name.value, secret_name: form.secret_name.value };
+      if (form.age.value !== "") data.age = Number(form.age.value);
+      createHero(data);
+    }
+
+    async function loadTeams() {
+      const teams = await (await fetch(`${API}/teams`)).json();
+      for (const t of teams) {
+        const opt = document.createElement("option");
+        opt.value = t.id;
+        opt.textContent = t.name;
+        document.querySelector("#teams").append(opt);
+      }
+    }
+
+    async function loadTeamHeroes(id) {
+      const ul = document.querySelector("#team-heroes");
+      ul.replaceChildren();
+      if (!id) return;
+      for (const h of await (await fetch(`${API}/teams/${id}/heroes`)).json()) {
+        ul.append(Object.assign(document.createElement("li"), { textContent: h.name }));
+      }
+    }
+
+    loadTeams();
+    loadHeroes();                        // render the table when the page opens
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/teams/:team_id/heroes"
+  method: GET
+  headers:
+    Accept: application/json
+  pathVariables:
+    team_id: "3810"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "name": "string",
+          "id": 9709,
+          "age": 2100,
+          "power": "string",
+          "team_id": 3454,
+          "status": "active"
+        },
+        {
+          "name": "string",
+          "id": 9468,
+          "age": 7309,
+          "power": "string",
+          "team_id": 8917,
+          "status": "retired"
+        }
+      ]
+order: 1000

@@ -1,0 +1,14 @@
+name: Local
+values:
+  - key: base_url
+    value: 'http://127.0.0.1:8000'
+    enabled: true
+  - key: hero_id
+    value: '1'
+    enabled: true
+  - key: team_id
+    value: '1'
+    enabled: true
+  - key: mission_id
+    value: '1'
+    enabled: true

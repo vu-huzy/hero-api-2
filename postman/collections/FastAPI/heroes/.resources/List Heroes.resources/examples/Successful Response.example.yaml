@@ -1,0 +1,39 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/heroes?offset=0&limit=10&min_age=2704&team_id=2704&name=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    offset: "0"
+    limit: "10"
+    min_age: "2704"
+    team_id: "2704"
+    name: string
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "name": "string",
+          "id": 368,
+          "age": 3671,
+          "power": "string",
+          "team_id": 5570,
+          "status": "retired"
+        },
+        {
+          "name": "string",
+          "id": 7976,
+          "age": 6231,
+          "power": "string",
+          "team_id": 5495,
+          "status": "active"
+        }
+      ]
+order: 1000

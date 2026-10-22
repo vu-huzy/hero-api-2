@@ -1,0 +1,11 @@
+# Use this workspace to collaborate
+workspace:
+  id: 78c24060-e672-4a1f-8836-47eae4921081
+
+localResources:
+  specs:
+    - ../openapi.json
+
+cloudResources:
+  collections:
+    ../postman/collections/FastAPI: 2868d9e8-43b6-4ab0-80f0-980664f0f490

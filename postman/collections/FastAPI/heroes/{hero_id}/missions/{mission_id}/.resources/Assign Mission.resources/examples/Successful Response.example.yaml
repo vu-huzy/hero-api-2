@@ -1,0 +1,14 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/heroes/:hero_id/missions/:mission_id"
+  method: POST
+  pathVariables:
+    hero_id: "158"
+    mission_id: "1283"
+response:
+  statusCode: 204
+  statusText: No Content
+  body:
+    type: text
+    content: ""
+order: 1000

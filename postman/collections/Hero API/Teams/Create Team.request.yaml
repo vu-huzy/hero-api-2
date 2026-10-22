@@ -1,0 +1,14 @@
+$kind: http-request
+method: POST
+url: '{{base_url}}/teams'
+order: 1000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Avengers",
+      "headquarters": "New York"
+    }

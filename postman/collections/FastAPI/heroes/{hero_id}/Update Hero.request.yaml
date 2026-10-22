@@ -1,0 +1,21 @@
+$kind: http-request
+url: "{{baseUrl}}/heroes/:hero_id"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  hero_id: "158"
+body:
+  type: json
+  content: |-
+    {
+      "name": null,
+      "age": 5541,
+      "power": null,
+      "team_id": 7888,
+      "secret_name": null
+    }
+settings: {}
+examples: ./.resources/Update Hero.resources/examples
+order: 3000

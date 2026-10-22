@@ -1,0 +1,27 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/teams"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "name": "string",
+          "headquarters": "string",
+          "id": 618
+        },
+        {
+          "name": "string",
+          "headquarters": "string",
+          "id": 6465
+        }
+      ]
+order: 1000

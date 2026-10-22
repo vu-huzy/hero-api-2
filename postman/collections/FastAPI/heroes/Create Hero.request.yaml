@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{baseUrl}}/heroes"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "secret_name": "string",
+      "age": null,
+      "power": "string",
+      "team_id": 1568,
+      "status": "active"
+    }
+settings: {}
+examples: ./.resources/Create Hero.resources/examples
+order: 2000

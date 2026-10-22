@@ -1,0 +1,9 @@
+$kind: http-request
+name: 'List Team Heroes'
+method: GET
+url: '{{base_url}}/teams/{{team_id}}/heroes'
+order: 3000
+pathVariables:
+  - key: team_id
+    value: '1'
+    description: The ID of the team

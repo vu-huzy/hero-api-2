@@ -1,0 +1,20 @@
+$kind: http-request
+name: 'Update Hero'
+method: PATCH
+url: '{{base_url}}/heroes/{{hero_id}}'
+order: 4000
+headers:
+  - key: Content-Type
+    value: application/json
+pathVariables:
+  - key: hero_id
+    value: '1'
+    description: The ID of the hero
+body:
+  type: json
+  content: |-
+    {
+      "name": "Spider-Man Updated",
+      "age": 26,
+      "power": "Enhanced strength"
+    }

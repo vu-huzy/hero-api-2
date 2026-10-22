@@ -1,0 +1,35 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/heroes"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "secret_name": "string",
+        "age": null,
+        "power": "string",
+        "team_id": 1568,
+        "status": "active"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "id": 3756,
+        "age": 4019,
+        "power": "string",
+        "team_id": null,
+        "status": "active"
+      }
+order: 1000

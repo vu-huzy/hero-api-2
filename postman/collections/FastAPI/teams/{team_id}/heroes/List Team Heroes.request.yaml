@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/teams/:team_id/heroes"
+method: GET
+headers:
+  Accept: application/json
+pathVariables:
+  team_id: "3810"
+settings: {}
+examples: ./.resources/List Team Heroes.resources/examples
+order: 1000

@@ -1,0 +1,9 @@
+$kind: http-request
+name: 'Delete Hero'
+method: DELETE
+url: '{{base_url}}/heroes/{{hero_id}}'
+order: 5000
+pathVariables:
+  - key: hero_id
+    value: '1'
+    description: The ID of the hero to delete

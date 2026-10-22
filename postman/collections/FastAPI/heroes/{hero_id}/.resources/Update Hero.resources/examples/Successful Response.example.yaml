@@ -1,0 +1,36 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/heroes/:hero_id"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  pathVariables:
+    hero_id: "158"
+  body:
+    type: json
+    content: |-
+      {
+        "name": null,
+        "age": 5541,
+        "power": null,
+        "team_id": 7888,
+        "secret_name": null
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "id": 8060,
+        "age": 1250,
+        "power": "string",
+        "team_id": 3010,
+        "status": "retired"
+      }
+order: 1000

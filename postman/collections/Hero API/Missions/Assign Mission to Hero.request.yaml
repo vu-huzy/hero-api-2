@@ -1,0 +1,12 @@
+$kind: http-request
+name: 'Assign Mission to Hero'
+method: POST
+url: '{{base_url}}/heroes/{{hero_id}}/missions/{{mission_id}}'
+order: 2000
+pathVariables:
+  - key: hero_id
+    value: '1'
+    description: The ID of the hero
+  - key: mission_id
+    value: '1'
+    description: The ID of the mission

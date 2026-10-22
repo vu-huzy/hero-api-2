@@ -1,0 +1,27 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/heroes/:hero_id/missions"
+  method: GET
+  headers:
+    Accept: application/json
+  pathVariables:
+    hero_id: "158"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "title": "string",
+          "id": 4995
+        },
+        {
+          "title": "string",
+          "id": 1108
+        }
+      ]
+order: 1000

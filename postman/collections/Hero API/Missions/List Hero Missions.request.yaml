@@ -1,0 +1,9 @@
+$kind: http-request
+name: 'List Hero Missions'
+method: GET
+url: '{{base_url}}/heroes/{{hero_id}}/missions'
+order: 3000
+pathVariables:
+  - key: hero_id
+    value: '1'
+    description: The ID of the hero

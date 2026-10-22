@@ -1,0 +1,18 @@
+$kind: http-request
+method: POST
+url: '{{base_url}}/heroes'
+order: 1000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Spider-Man",
+      "secret_name": "Peter Parker",
+      "age": 25,
+      "power": "Wall-crawling",
+      "team_id": null,
+      "status": "active"
+    }

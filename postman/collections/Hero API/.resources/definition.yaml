@@ -1,0 +1,3 @@
+$kind: collection
+name: Hero API
+description: FastAPI Hero API — teams, heroes, and missions.
